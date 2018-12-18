@@ -6,7 +6,7 @@
 /*   By: dshults <dshults@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 15:41:23 by dshults           #+#    #+#             */
-/*   Updated: 2018/12/08 12:31:57 by esouza           ###   ########.fr       */
+/*   Updated: 2018/12/18 16:57:40 by esouza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_labels	*make_label(char **line, int len, int p)
 {
 	t_labels		*label;
 
-	label = ft_memalloc(sizeof(t_labels));
+	if (!(label = ft_memalloc(sizeof(t_labels))))
+		exit(EXIT_FAILURE);
 	if (len > 0)
 		label->name = ft_strndup(line[0], len);
 	else

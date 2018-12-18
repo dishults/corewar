@@ -6,7 +6,7 @@
 /*   By: rfibigr <rfibigr@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:21:32 by rfibigr           #+#    #+#             */
-/*   Updated: 2018/12/16 18:22:19 by rfibigr          ###   ########.fr       */
+/*   Updated: 2018/12/18 14:06:56 by rfibigr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_exit_dump(t_vm *vm)
 	size_t i;
 
 	i = 0;
+	if (vm->flag_processus == 1)
+		print_processus(vm->processus);
 	while (i < MEM_SIZE)
 	{
 		if (!(i % 64))
@@ -41,8 +43,11 @@ void	ft_exit_dump(t_vm *vm)
 	exit(0);
 }
 
-void	ft_exit_nochamp(char *file)
+void	ft_exit_nochamp(t_vm *vm, char *file)
 {
-	ft_printf("Error : File \"%s\" has a champion without instruction\n", file);
+	ft_putstr_fd("Error : File \"", 2);
+	ft_putstr_fd(file, 2);
+	ft_putstr_fd("\" is has a champion without instruction\n", 2);
+	ft_free_vm(vm);
 	exit(1);
 }

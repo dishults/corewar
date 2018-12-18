@@ -6,7 +6,7 @@
 /*   By: esouza <esouza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 12:49:39 by esouza            #+#    #+#             */
-/*   Updated: 2018/12/14 15:16:08 by esouza           ###   ########.fr       */
+/*   Updated: 2018/12/18 15:02:24 by esouza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_str_trim(char const *s)
 	return (ft_strsub(s, 0, n));
 }
 
-int						ft_strmcmp(char *s1, char *s2, size_t len)
+int			ft_strmcmp(char *s1, char *s2, size_t len)
 {
 	while (--len && *s1 == *s2)
 	{
@@ -41,7 +41,7 @@ int						ft_strmcmp(char *s1, char *s2, size_t len)
 	return (*s1 - *s2);
 }
 
-int						create_file_body(t_data *d, int fd2)
+int			create_file_body(t_data *d, int fd2)
 {
 	t_labels		*head;
 	int				arnb;

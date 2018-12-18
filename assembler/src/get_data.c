@@ -6,7 +6,7 @@
 /*   By: esouza <esouza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:18:52 by esouza            #+#    #+#             */
-/*   Updated: 2018/12/14 10:55:14 by esouza           ###   ########.fr       */
+/*   Updated: 2018/12/18 16:56:30 by esouza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void			get_data(char **argv, int fd, int fd2)
 	if (!(header = (t_header *)malloc(sizeof(t_header))))
 		exit(EXIT_FAILURE);
 	ft_bzero(&d, sizeof(t_data));
-	data = ft_strnew(0);
+	if (!(data = ft_strnew(0)))
+		exit(EXIT_FAILURE);
 	read_fd(fd, &data);
 	d.tab = ft_strsplit(data, '\n');
 	d.y = set_header(d.tab, header) + 1;

@@ -6,7 +6,7 @@
 /*   By: esouza <esouza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:01:16 by esouza            #+#    #+#             */
-/*   Updated: 2018/12/13 15:31:58 by dshults          ###   ########.fr       */
+/*   Updated: 2018/12/18 17:10:05 by esouza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		check_args(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	len = ft_strlen(argv[1]);
-	if (argv[1][len - 1] != 's' || argv[1][len - 2] != '.')
+	if (argv[1][len - 1] != 's' || argv[1][len - 2] != '.' || len == 0)
 	{
 		ft_putstr("Bad file format. Expected a '.s' file\n");
 		exit(EXIT_FAILURE);

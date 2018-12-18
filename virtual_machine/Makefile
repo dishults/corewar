@@ -6,7 +6,7 @@
 #    By: rfibigr <rfibigr@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 16:20:20 by rfibigr           #+#    #+#              #
-#    Updated: 2018/12/16 17:50:36 by rfibigr          ###   ########.fr        #
+#    Updated: 2018/12/18 17:21:17 by rfibigr          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 .PHONY: all, clean, fclean, re
@@ -44,6 +44,7 @@ NAME = 		corewar
 SRC =		corewar.c			\
 			check_parameters.c	\
 			check_parameters2.c	\
+			check_parameters3.c	\
 			convert.c			\
 			exit.c				\
 			exit2.c				\
@@ -77,33 +78,27 @@ LIBNAME =	libft/libft.a \
 INCP =		$(foreach dir, $(INC_PATH), -I$(dir))
 LIBP = 		$(addprefix $(LIB_PATH)/,$(LIBNAME))
 OBJ	 =		$(addprefix $(OBJ_PATH)/,$(SRC:.c=.o))
+HDRS =		$(addprefix $(INC_PATH)/,corewar.h ft_printf.h get_next_line.h libft.h op.h)
 
 ###################################################
 #/********************** RULES *********************/
 
 all : $(NAME_PATH)$(NAME)
 
-$(NAME_PATH)$(NAME) : $(OBJ)
-	@echo "$(LOW_GREEN) --Compiling lib--\tlibft"
-	@make -C $(LIB_PATH)/libft
-	@echo "$(PURPLE) --Linking--\t\t$(NAME)"
-	$(CC) -lncurses -o $@ $^ $(LIBP)
+$(NAME_PATH)$(NAME) : $(OBJ) $(HDRS) Makefile $(LIBP)
+	@$(CC) $(CFLAGS) -lncurses $(OBJ) $(LIBP) -o $(NAME_PATH)$(NAME)
+	@echo "\n$(PURPLE)Executable $(NAME)\tdone$(NC)"
 
-$(OBJ_PATH)/%.o : $(SRC_PATH)/%.c
-	@echo "$(GREEN) --Compiling--\t\t$(NAME)"
+$(OBJ_PATH)/%.o : $(SRC_PATH)/%.c $(HDRS) Makefile $(LIBP)
+	@echo "$(GREEN)o\c"
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) $(CFLAGS) $(OPFLAGS) -o $@ -c $^ $(INCP)
+	@$(CC) $(CFLAGS) $(OPFLAGS) -c $< -o $@ $(INCP)
 
 clean :
-	@echo "$(RED) --Cleaning--\t\tobject folder"
 	@rm -rf $(OBJ_PATH) 2> /dev/null || true
-	@echo "$(RED) --Cleaning--\t\tlibrary libft"
-	@make clean -C $(LIB_PATH)/libft
 
 fclean : clean
-	@echo "$(RED) --Cleaning--\t\texecutable"
 	@rm -rf $(NAME_PATH)$(NAME)
-	@make fclean -C $(LIB_PATH)/libft
 
 re: fclean all
 
