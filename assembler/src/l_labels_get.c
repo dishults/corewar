@@ -6,7 +6,7 @@
 /*   By: dshults <dshults@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 15:41:23 by dshults           #+#    #+#             */
-/*   Updated: 2018/12/14 15:02:02 by dshults          ###   ########.fr       */
+/*   Updated: 2018/12/20 10:38:34 by dshults          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,6 @@ int			get_labels(t_data *d)
 		|| !compliance_check(d, d->first_label))
 		return (0);
 	add_bytes(d, d->first_label, 0);
+	show_labels(d);
 	return (1);
 }

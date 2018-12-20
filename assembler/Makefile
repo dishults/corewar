@@ -6,7 +6,7 @@
 #    By: esouza <esouza@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 10:51:14 by esouza            #+#    #+#              #
-#    Updated: 2018/12/18 09:25:33 by esouza           ###   ########.fr        #
+#    Updated: 2018/12/20 10:37:01 by dshults          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ FLAGS = -Wall -Werror -Wextra
 SRCS =	main.c \
 		check_words.c \
 		error.c \
+		extras.c \
 		free_data.c \
 		ft_strchr_no_zero.c \
 		ft_strndup.c \

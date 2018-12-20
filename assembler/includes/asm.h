@@ -6,7 +6,7 @@
 /*   By: esouza <esouza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:39:03 by esouza            #+#    #+#             */
-/*   Updated: 2018/12/18 09:26:57 by esouza           ###   ########.fr       */
+/*   Updated: 2018/12/20 10:36:43 by dshults          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,10 @@ char					*ft_strchr_no_zero(const char *s, int c);
 char					*ft_strndup(const char *s, size_t n);
 char					*str_trim(char const *s);
 void					trim_spaces(char **tab);
+
+void					print_tab(t_data *d);
+void					show_op_param_types(t_op *op);
+void					show_bytes_till_label(t_data *d);
+void    				show_labels(t_data *d);
 
 #endif
